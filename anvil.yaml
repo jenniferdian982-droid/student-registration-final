@@ -1,0 +1,70 @@
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {auto_create_missing_columns: false}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: true, enable_automatically: true, use_email: true,
+    confirm_email: false, allow_remember_me: false, require_secure_passwords: true,
+    use_google: false, use_facebook: false, use_microsoft: false, use_token: false,
+    share_login_status: false, allow_mfa: false, use_webauthn: false}
+  server_config: {user_table: users}
+startup: {type: form, module: Main, properties: {}}
+package_name: Secure_Student_Registration_System
+allow_embedding: false
+name: Secure Student Registration System
+runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
+  server_persist: false}
+metadata: {title: Secure Student Registration System, description: 'Authentication, RBAC and server-side validation demo built with Anvil.'}
+db_schema:
+  students:
+    client: none
+    server: full
+    columns:
+    - name: student_id
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: name
+      admin_ui: {order: 1, width: 250}
+      type: string
+    - name: course
+      admin_ui: {order: 2, width: 120}
+      type: string
+    - name: year_level
+      admin_ui: {order: 3, width: 120}
+      type: number
+    - name: owner
+      admin_ui: {order: 4, width: 200}
+      type: link_single
+      target: users
+    title: students
+  users:
+    client: none
+    server: full
+    columns:
+    - name: email
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {order: 1, width: 100}
+      type: bool
+    - name: signed_up
+      admin_ui: {order: 2, width: 200}
+      type: datetime
+    - name: last_login
+      admin_ui: {order: 3, width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {order: 4, width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {order: 5, width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {order: 6, width: 200}
+      type: bool
+    - name: role
+      admin_ui: {order: 7, width: 150}
+      type: string
+    title: Users
+renamed: true

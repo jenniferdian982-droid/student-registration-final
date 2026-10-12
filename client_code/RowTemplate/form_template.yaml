@@ -1,0 +1,48 @@
+is_package: true
+container:
+  type: DataRowPanel
+components:
+- type: Label
+  name: id_label
+  properties:
+    text: ''
+    foreground: '#222222'
+  data_bindings:
+  - property: text
+    code: self.item['student_id']
+    writeback: false
+  layout_properties:
+    column: COLSID
+- type: Label
+  name: name_label
+  properties:
+    text: ''
+    foreground: '#222222'
+  data_bindings:
+  - property: text
+    code: self.item['name']
+    writeback: false
+  layout_properties:
+    column: COLNAM
+- type: Label
+  name: course_label
+  properties:
+    text: ''
+    foreground: '#222222'
+  data_bindings:
+  - property: text
+    code: self.item['course']
+    writeback: false
+  layout_properties:
+    column: COLCRS
+- type: Label
+  name: year_label
+  properties:
+    text: ''
+    foreground: '#222222'
+  data_bindings:
+  - property: text
+    code: self.item['year_level']
+    writeback: false
+  layout_properties:
+    column: COLYRL

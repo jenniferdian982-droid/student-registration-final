@@ -1,0 +1,369 @@
+is_package: true
+container:
+  type: ColumnPanel
+  properties:
+    col_widths: '{}'
+    background: '#FFFBEA'
+  event_bindings:
+    show: form_show
+components:
+- type: ColumnPanel
+  name: header_panel
+  properties:
+    background: '#800000'
+    col_widths: '{}'
+    spacing_above: none
+    spacing_below: none
+  layout_properties:
+    grid_position: IALJEV,TGQFYK
+  components:
+  - type: Label
+    name: title_label
+    properties:
+      text: Secure Student Registration System
+      bold: true
+      font_size: 24
+      foreground: '#F5C518'
+    layout_properties:
+      grid_position: CINOHB,BFJLQS
+      col_xs: 0
+      width_xs: 9
+  - type: Button
+    name: logout_button
+    properties:
+      text: Log Out
+      icon: fa:sign-out
+      background: '#F5C518'
+      foreground: '#800000'
+      bold: true
+      visible: false
+      align: right
+    layout_properties:
+      grid_position: CINOHB,BTNCEL
+      col_xs: 9
+      width_xs: 3
+    event_bindings:
+      click: logout_button_click
+  - type: Button
+    name: login_button
+    properties:
+      text: Log In
+      icon: fa:sign-in
+      background: '#F5C518'
+      foreground: '#800000'
+      bold: true
+      align: right
+    layout_properties:
+      grid_position: CINOHB,BTNCEL
+      col_xs: 9
+      width_xs: 3
+    event_bindings:
+      click: login_button_click
+  - type: Label
+    name: subtitle_label
+    properties:
+      text: Authentication  |  Authorization  |  Role-Based Access Control
+      italic: true
+      font_size: 13
+      foreground: '#F3E3B0'
+    layout_properties:
+      grid_position: SBAPLW,JBATUC
+      col_xs: 0
+      width_xs: 12
+  - type: Label
+    name: user_label
+    properties:
+      text: Not logged in
+      bold: true
+      foreground: '#FFFFFF'
+    layout_properties:
+      grid_position: PCXJKE,CCORLX
+      col_xs: 0
+      width_xs: 12
+- type: Label
+  name: status_label
+  properties:
+    text: Please log in to continue.
+    bold: true
+    foreground: '#6B4E00'
+    background: '#FFF1B8'
+    border: '1px solid #F5C518'
+    align: left
+    spacing_above: small
+  layout_properties:
+    grid_position: BXXWEZ,KLCVPC
+- type: ColumnPanel
+  name: app_panel
+  properties:
+    visible: false
+    col_widths: '{}'
+    background: '#FFFBEA'
+  layout_properties:
+    grid_position: VOPHKM,VIGUNZ
+  components:
+  - type: ColumnPanel
+    name: register_card
+    properties:
+      background: '#FFFFFF'
+      border: '1px solid #E3C35A'
+      col_widths: '{}'
+      spacing_above: medium
+      spacing_below: small
+    layout_properties:
+      grid_position: TCCCUD,SKGEEP
+    components:
+    - type: Label
+      name: reg_heading
+      properties:
+        text: '  Register a Student'
+        bold: true
+        font_size: 16
+        foreground: '#FFFFFF'
+        background: '#1F6F3F'
+        align: left
+      layout_properties:
+        grid_position: ORYOOQ,SGFZQP
+    - type: Label
+      name: student_id_box_caption
+      properties:
+        text: Student ID
+        bold: true
+        foreground: '#800000'
+      layout_properties:
+        grid_position: UTZFDO,JECRZW
+        col_xs: 0
+        width_xs: 3
+    - type: TextBox
+      name: student_id_box
+      properties:
+        placeholder: e.g. 2024-0001
+        border: '1px solid #1F6F3F'
+        background: '#FFFFFF'
+        foreground: '#222222'
+      layout_properties:
+        grid_position: UTZFDO,XTUFTA
+        col_xs: 3
+        width_xs: 9
+    - type: Label
+      name: name_box_caption
+      properties:
+        text: Full name
+        bold: true
+        foreground: '#800000'
+      layout_properties:
+        grid_position: QCBBGH,TAYOKO
+        col_xs: 0
+        width_xs: 3
+    - type: TextBox
+      name: name_box
+      properties:
+        placeholder: e.g. Juan Dela Cruz
+        border: '1px solid #1F6F3F'
+        background: '#FFFFFF'
+        foreground: '#222222'
+      layout_properties:
+        grid_position: QCBBGH,PAVCOU
+        col_xs: 3
+        width_xs: 9
+    - type: Label
+      name: course_dropdown_caption
+      properties:
+        text: Course
+        bold: true
+        foreground: '#800000'
+      layout_properties:
+        grid_position: INRCWI,KYHQJA
+        col_xs: 0
+        width_xs: 3
+    - type: DropDown
+      name: course_dropdown
+      properties:
+        items:
+        - BSIT
+        - BSCS
+        - BSIS
+        include_placeholder: true
+        placeholder: Select course
+        border: '1px solid #1F6F3F'
+        background: '#FFFFFF'
+      layout_properties:
+        grid_position: INRCWI,JMCAVA
+        col_xs: 3
+        width_xs: 9
+    - type: Label
+      name: year_dropdown_caption
+      properties:
+        text: Year level
+        bold: true
+        foreground: '#800000'
+      layout_properties:
+        grid_position: GGBPMW,MNCSUG
+        col_xs: 0
+        width_xs: 3
+    - type: DropDown
+      name: year_dropdown
+      properties:
+        items:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        include_placeholder: true
+        placeholder: Select year level
+        border: '1px solid #1F6F3F'
+        background: '#FFFFFF'
+      layout_properties:
+        grid_position: GGBPMW,KANYDE
+        col_xs: 3
+        width_xs: 9
+    - type: Button
+      name: register_button
+      properties:
+        text: Register Student
+        icon: fa:user-plus
+        background: '#1F6F3F'
+        foreground: '#FFFFFF'
+        bold: true
+        align: left
+      layout_properties:
+        grid_position: HWDABO,ZPFVRG
+        col_xs: 3
+        width_xs: 9
+      event_bindings:
+        click: register_button_click
+  - type: ColumnPanel
+    name: records_card
+    properties:
+      background: '#FFFFFF'
+      border: '1px solid #E3C35A'
+      col_widths: '{}'
+      spacing_above: medium
+      spacing_below: small
+    layout_properties:
+      grid_position: WSOOOR,DOPIGN
+    components:
+    - type: Label
+      name: rec_heading
+      properties:
+        text: '  Registrations'
+        bold: true
+        font_size: 16
+        foreground: '#FFFFFF'
+        background: '#1F6F3F'
+        align: left
+      layout_properties:
+        grid_position: OQGXYE,NUMDMN
+    - type: Button
+      name: view_button
+      properties:
+        text: View Records
+        icon: fa:list
+        background: '#F5C518'
+        foreground: '#800000'
+        bold: true
+        align: left
+      layout_properties:
+        grid_position: GAIZSJ,AGFMTU
+        col_xs: 0
+        width_xs: 12
+      event_bindings:
+        click: view_button_click
+    - type: DataGrid
+      name: records_area
+      properties:
+        columns:
+        - id: COLSID
+          title: Student ID
+          data_key: student_id
+        - id: COLNAM
+          title: Name
+          data_key: name
+        - id: COLCRS
+          title: Course
+          data_key: course
+        - id: COLYRL
+          title: Year Level
+          data_key: year_level
+        rows_per_page: 10
+        show_page_controls: true
+        auto_header: true
+        border: '1px solid #E3C35A'
+      layout_properties:
+        grid_position: SDBEGO,IAYTKJ
+      components:
+      - type: RepeatingPanel
+        name: records_panel
+        properties:
+          spacing_above: none
+          spacing_below: none
+          item_template: RowTemplate
+        layout_properties: {}
+  - type: ColumnPanel
+    name: delete_card
+    properties:
+      background: '#FFFFFF'
+      border: '1px solid #E3C35A'
+      col_widths: '{}'
+      spacing_above: medium
+      spacing_below: small
+    layout_properties:
+      grid_position: TCPAHW,WTOKCB
+    components:
+    - type: Label
+      name: del_heading
+      properties:
+        text: '  Delete a Registration (Admin only)'
+        bold: true
+        font_size: 16
+        foreground: '#FFFFFF'
+        background: '#1F6F3F'
+        align: left
+      layout_properties:
+        grid_position: MCCCGS,UHATLL
+    - type: Label
+      name: delete_id_caption
+      properties:
+        text: Student ID
+        bold: true
+        foreground: '#800000'
+      layout_properties:
+        grid_position: TOESPS,EMFUEJ
+        col_xs: 0
+        width_xs: 3
+    - type: TextBox
+      name: delete_id_box
+      properties:
+        placeholder: Student ID to delete
+        border: '1px solid #1F6F3F'
+        background: '#FFFFFF'
+        foreground: '#222222'
+      layout_properties:
+        grid_position: TOESPS,XURGVM
+        col_xs: 3
+        width_xs: 6
+    - type: Button
+      name: delete_button
+      properties:
+        text: Delete
+        icon: fa:trash
+        background: '#800000'
+        foreground: '#FFFFFF'
+        bold: true
+        align: full
+      layout_properties:
+        grid_position: TOESPS,DBQIHX
+        col_xs: 9
+        width_xs: 3
+      event_bindings:
+        click: delete_button_click
+    - type: Label
+      name: delete_hint
+      properties:
+        text: Only administrators can delete records. The server verifies your role on every request.
+        italic: true
+        font_size: 12
+        foreground: '#666666'
+      layout_properties:
+        grid_position: WMINTP,JQFXCE
+        col_xs: 3
+        width_xs: 9
